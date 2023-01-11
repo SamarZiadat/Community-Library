@@ -21,7 +21,7 @@ SHEET = GSPREAD_CLIENT.open('vinyl_collection')
 
 def menu():
     """
-    Get menu option input from user
+    Print menu options
     """
     print('Menu')
     print('1. Add a new vinyl to the collection')
@@ -61,5 +61,3 @@ while option != 4:
     option = int(input('Enter a number from 1-4 to navigate through the menu: ').strip())
 
 print('You have now exited the programme.')
-
-
