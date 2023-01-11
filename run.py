@@ -22,12 +22,18 @@ def menu():
     print('3. Edit collection')
     print('4. Exit')
 
+def option1():
+    """ 
+    option 1
+    """
+    print('Option 1 has been called using a function')
+
 menu()
 option = int(input('Enter a number from 1-4 to navigate through the menu: '))
 
 while option != 4:
     if option == 1:
-        print('Option 1 has been called')
+        option1()
     elif option == 2:
         print('Option 2 has been called')
     elif option == 3:
