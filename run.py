@@ -29,7 +29,7 @@ def option1():
     print('Option 1 has been called using a function')
 
 menu()
-option = int(input('Enter a number from 1-4 to navigate through the menu: '))
+option = int(input('Enter a number from 1-4 to navigate through the menu: ').strip())
 
 while option != 4:
     if option == 1:
@@ -43,6 +43,8 @@ while option != 4:
         menu()
 
     print()
-    option = int(input('Enter a number from 1-4 to navigate through the menu: '))
+    option = int(input('Enter a number from 1-4 to navigate through the menu: ').strip())
 
 print('You have now exited the programme.')
+
+
