@@ -53,6 +53,9 @@ def menu():
 
     menu()
 
+def update_vinyl_worksheet():
+    
+
 def get_artist():
     while True:
         artist = input('Enter the artist name: ').strip()
@@ -93,12 +96,27 @@ def add_to_collection():
     album = get_album()
     year = get_year()
     
-    #  List collate the returned values from functions to confirm new vinyl entry
+    # List collate the returned values from functions to confirm new vinyl entry
     new_addition = [
-        artist
-        album
+        artist,
+        album,
         year
         ]
+    
+    # Confirm entry is correct with user 
+    print(f"The newest addition to your vinyl collection is {album} ({year}) by {artist}")
+    # While loop to either confirm entry or restart
+    # If input is not valid, error message will user to try again
+    
+    while True:
+        user_confirm = print("\nIs this correct? y/n").strip()
+        if user_confirm.lower() == "y":
+            update_vinyl_worksheet(new_addition)
+        elif user_confirm.lower() == "n":
+            break
+        else:
+            print("Invalid choice, please enter either y or n\n")
+            continue
 
 
 def display_collection():
