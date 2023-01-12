@@ -65,6 +65,9 @@ def display_collection():
     records_data = sheet_instance.get_all_records()
     print(tabulate(records_data, tablefmt='rounded_grid'))
 
+    print('/n')
+    input('Press enter to go back to main menu.')
+
 def main():
     menu()
 
