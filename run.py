@@ -37,9 +37,9 @@ def menu():
         sys.exit(0)
 
     if option == "1":
-        option1()
+        add_to_collection()
     elif option == "2":
-        option2()
+        display_collection()
     elif option == "3":
         print('Option 3 has been called')
     else:
@@ -48,7 +48,7 @@ def menu():
 
     menu()
 
-def option1():
+def add_to_collection():
     """ 
     Gets data on new vinyl entry from user
     """
@@ -56,7 +56,7 @@ def option1():
     artist_request = (input('Enter the artist name: ').strip().capwords())
     print(f"The artist name is {artist_request}")
 
-def option2():
+def display_collection():
     """
     Displays all sheet data from google doc
     """
