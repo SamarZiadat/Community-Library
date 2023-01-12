@@ -53,8 +53,15 @@ def menu():
 
     menu()
 
-def update_vinyl_worksheet():
-    
+def update_vinyl_worksheet(data):
+    """
+    Inserts new vinyl data from user to external spreadsheet
+    """
+    vinyl_worksheet = SHEET.worksheet("vinyl_collection")
+    vinyl_worksheet.append_row(data)
+    print("Your vinyl collection has been successfully updated.")
+    input('\nPress enter to go back to main menu: ')
+
 
 def get_artist():
     while True:
@@ -109,15 +116,16 @@ def add_to_collection():
     # If input is not valid, error message will user to try again
     
     while True:
-        user_confirm = print("\nIs this correct? y/n").strip()
-        if user_confirm.lower() == "y":
+        user_confirm = input(("\nIs this correct? y/n ").strip().lower())
+        if user_confirm == "y":
             update_vinyl_worksheet(new_addition)
-        elif user_confirm.lower() == "n":
+        elif user_confirm == "n":
+            print("Let's start again")
             break
         else:
             print("Invalid choice, please enter either y or n\n")
             continue
-
+    add_to_collection()
 
 def display_collection():
     """
