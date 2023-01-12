@@ -29,6 +29,25 @@ def menu():
     print('3. Edit collection')
     print('4. Exit')
 
+    option = input(
+        '\nEnter a number from 1-4 to navigate through the menu: ').strip()
+
+    if option == "4":
+        print('You have now exited the programme.')
+        sys.exit(0)
+
+    if option == "1":
+        option1()
+    elif option == "2":
+        option2()
+    elif option == "3":
+        print('Option 3 has been called')
+    else:
+        print('Invalid option.')
+        menu()
+
+    menu()
+
 def option1():
     """ 
     Gets data on new vinyl entry from user
@@ -47,20 +66,3 @@ def option2():
     print(tabulate(records_data, tablefmt='rounded_grid'))
 
 menu()
-option = int(input('\nEnter a number from 1-4 to navigate through the menu: ').strip())
-
-while option != 4:
-    if option == 1:
-        option1()
-    elif option == 2:
-        option2()
-    elif option == 3:
-        print('Option 3 has been called')
-    else:
-        print('Invalid option.')
-        menu()
-
-    print()
-    option = int(input('\nEnter a number from 1-4 to navigate through the menu: ').strip())
-
-print('You have now exited the programme.')
