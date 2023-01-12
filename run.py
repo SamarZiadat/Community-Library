@@ -49,11 +49,25 @@ def menu():
 
     menu()
 
+def get_artist():
+    while True:
+        name = console.input('Enter the artist name: ').strip()
+        if name.isalpha() == True:
+            print(f"The artist name is {artist_request}")
+            else:
+            print("Invalid name, please only enter characters that are part of the alphabet.\n")
+            continue
+        return name
+
 def add_to_collection():
     """ 
     Gets data on new vinyl entry from user
     """
     print("\nLet's add a new vinyl to the collection")
+    artist = get_artist()
+    album = get_album()
+    year = get_year()
+    
     artist_request = (input('Enter the artist name: ').strip().capwords())
     print(f"The artist name is {artist_request}")
 
@@ -64,7 +78,8 @@ def display_collection():
     print('\nYour Vinyl Collection:')
     sheet_instance = SHEET.get_worksheet(0)
     records_data = sheet_instance.get_all_records()
-    print(tabulate(records_data, tablefmt='rounded_grid'))
+    print(tabulate(
+        records_data, headers='firstrow', tablefmt='rounded_grid'))
 
     input('\nPress enter to go back to main menu: ')
 
