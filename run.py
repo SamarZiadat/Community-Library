@@ -31,9 +31,11 @@ def menu():
 
 def option1():
     """ 
-    option 1
+    Gets data on new vinyl entry from user
     """
-    print('Option 1 has been called using a function')
+    print("\nLet's add a new vinyl to the collection")
+    artist_request = (input('Enter the artist name: ').strip().capwords())
+    print(f"The artist name is {artist_request}")
 
 def option2():
     """
