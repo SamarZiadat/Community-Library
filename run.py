@@ -55,13 +55,34 @@ def menu():
 
 def get_artist():
     while True:
-        name = input('Enter the artist name: ').strip()
-        if name.isalpha() == True:
-            print(f"The artist name is {name}.")
+        artist = input('Enter the artist name: ').strip()
+        if re.match(r"[\s\S\?]", artist):
+            print(f"The artist name is {artist}\n")
         else:
-            print("Invalid name, please only enter characters that are part of the alphabet.\n")
+            print("Invalid name\n")
             continue
-        return name
+        return artist
+
+def get_album():
+    while True:
+        album = input('Enter the album title: ').strip()
+        if re.match(r"[\s\S\?]", album):
+            print(f"The album title is {album}\n")
+        else:
+            print("Invalid album title\n")
+            continue
+        return album
+
+def get_year():
+    while True:
+        year = input('What year was the album released (format YYYY)? ').strip()
+        if not int(year):
+            print("Invalid year, please only enter numbers")
+        elif len(year) > 4:
+            print("Invalid answer, please use format YYYY\n")
+        else:
+            print(f"The album was released in {year}\n")
+        return year
 
 def add_to_collection():
     """ 
@@ -72,8 +93,13 @@ def add_to_collection():
     album = get_album()
     year = get_year()
     
-    artist_request = (input('Enter the artist name: ').strip().capwords())
-    print(f"The artist name is {artist_request}")
+    #  List collate the returned values from functions to confirm new vinyl entry
+    new_addition = [
+        artist
+        album
+        year
+        ]
+
 
 def display_collection():
     """
