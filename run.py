@@ -65,4 +65,8 @@ def option2():
     records_data = sheet_instance.get_all_records()
     print(tabulate(records_data, tablefmt='rounded_grid'))
 
-menu()
+def main():
+    menu()
+
+if __name__ == '__main__':
+    main()
