@@ -23,7 +23,7 @@ def menu():
     """
     Print menu options
     """
-    print('Menu')
+    print('Menu\n')
     print('1. Add a new vinyl to the collection')
     print('2. Display full collection')
     print('3. Edit collection')
@@ -39,12 +39,13 @@ def option2():
     """
     Displays all sheet data from google doc
     """
+    print('\nYour Vinyl Collection:')
     sheet_instance = SHEET.get_worksheet(0)
     records_data = sheet_instance.get_all_records()
-    print(tabulate(records_data, tablefmt="rounded_grid"))
+    print(tabulate(records_data, tablefmt='rounded_grid'))
 
 menu()
-option = int(input('Enter a number from 1-4 to navigate through the menu: ').strip())
+option = int(input('\nEnter a number from 1-4 to navigate through the menu: ').strip())
 
 while option != 4:
     if option == 1:
@@ -58,6 +59,6 @@ while option != 4:
         menu()
 
     print()
-    option = int(input('Enter a number from 1-4 to navigate through the menu: ').strip())
+    option = int(input('\nEnter a number from 1-4 to navigate through the menu: ').strip())
 
 print('You have now exited the programme.')
