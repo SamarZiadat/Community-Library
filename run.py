@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from tabulate import tabulate
+import sys
 
 # define the scope
 SCOPE = [
@@ -65,8 +66,7 @@ def display_collection():
     records_data = sheet_instance.get_all_records()
     print(tabulate(records_data, tablefmt='rounded_grid'))
 
-    print('/n')
-    input('Press enter to go back to main menu.')
+    input('\nPress enter to go back to main menu: ')
 
 def main():
     menu()
