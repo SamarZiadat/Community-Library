@@ -1,7 +1,11 @@
-import gspread
+"""
+Imported libraries supporting the application
+"""
+import gspread # To open and edit vinyl collection spreadsheet
 from google.oauth2.service_account import Credentials
-from tabulate import tabulate
-import sys
+from tabulate import tabulate # To pretty-print tabular data in the command-line application
+import sys # To provide a programme exit for the user
+import re  # To support name and album validation
 
 # define the scope
 SCOPE = [
@@ -51,10 +55,10 @@ def menu():
 
 def get_artist():
     while True:
-        name = console.input('Enter the artist name: ').strip()
+        name = input('Enter the artist name: ').strip()
         if name.isalpha() == True:
-            print(f"The artist name is {artist_request}")
-            else:
+            print(f"The artist name is {name}.")
+        else:
             print("Invalid name, please only enter characters that are part of the alphabet.\n")
             continue
         return name
