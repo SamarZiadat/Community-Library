@@ -77,11 +77,16 @@ def edit_collection():
     Deletes row from external spreadsheet on users command
     """
     print('\nYour Vinyl Collection:')
+    
     sheet_instance = SHEET.get_worksheet(0)
     records_data = sheet_instance.get_all_records()
     rowIDs = list(range(2, len(records_data) + 2))
     print(tabulate(
         records_data, headers='keys', showindex=rowIDs, tablefmt='rounded_grid'))
+    
+    row_to_delete = input('Which vinyl would you like to delete? ').strip()
+    SHEET.delete_row(row_to_delete)
+    input('\nPress enter to go back to main menu: ')
     
 def update_vinyl_worksheet(data):
     """
@@ -92,7 +97,6 @@ def update_vinyl_worksheet(data):
     print("\nYour vinyl collection has been successfully updated.")
     input('Press enter to go back to main menu: ')
     menu()
-
 
 def get_artist():
     while True:
