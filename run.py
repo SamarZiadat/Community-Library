@@ -24,6 +24,12 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 # get the instance of the sheet
 SHEET = GSPREAD_CLIENT.open('vinyl_collection')
 
+def wipe():
+    """
+    Wipes the terminal between certain user interections to improve UX.
+    """
+    os.system("printf '\ec'")
+    
 def menu():
     """
     Print menu options
@@ -52,12 +58,6 @@ def menu():
         menu()
 
     menu()
-
-def wipe():
-    """
-    Wipes the terminal between certain user interections to improve UX.
-    """
-    os.system("printf '\ec'")
 
 def edit_collection():
     """
