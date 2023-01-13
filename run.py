@@ -46,12 +46,24 @@ def menu():
     elif option == "2":
         display_collection()
     elif option == "3":
-        print('Option 3 has been called')
+        edit_collection()
     else:
         print('Invalid option.')
         menu()
 
     menu()
+
+def edit_collection():
+    """
+    Deletes row from external spreadsheet on users command
+    """
+    print('\nYour Vinyl Collection:')
+    sheet_instance = SHEET.get_worksheet(0)
+    records_data = sheet_instance.get_all_records()
+    rowIDs = list(range(2, len(records_data) + 2))
+    print(tabulate(
+        records_data, headers='keys', showindex=rowIDs, tablefmt='rounded_grid'))
+    
 
 def update_vinyl_worksheet(data):
     """
@@ -137,7 +149,7 @@ def display_collection():
     sheet_instance = SHEET.get_worksheet(0)
     records_data = sheet_instance.get_all_records()
     print(tabulate(
-        records_data, headers='firstrow', tablefmt='rounded_grid'))
+        records_data, headers='keys', tablefmt='rounded_grid'))
 
     input('\nPress enter to go back to main menu: ')
 
