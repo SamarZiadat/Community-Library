@@ -7,6 +7,7 @@ from tabulate import tabulate # To pretty-print tabular data in the command-line
 import sys # To provide a programme exit for the user
 import re  # To support name and album validation
 import os # To support clearing the terminal for improved UX 
+from os import system, name
 
 # define the scope
 SCOPE = [
@@ -50,7 +51,7 @@ def menu():
     option = input(
         '\nEnter a number from 1-4 to navigate through the menu: ').strip()
 
-    if option == "4"
+    if option == "4":
         wipe()
         print('You have now exited the programme.')
         sys.exit(0)
