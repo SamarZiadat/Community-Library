@@ -29,7 +29,13 @@ def wipe():
     """
     Wipes the terminal between certain user interections to improve UX.
     """
-    os.system('clear')
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+ 
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
 
 def menu():
     """
