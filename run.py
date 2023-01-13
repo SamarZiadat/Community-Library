@@ -42,6 +42,7 @@ def menu():
     """
     Print menu options
     """
+    wipe()
     print('Menu\n')
     print('1. Add a new vinyl to the collection')
     print('2. Display full collection')
