@@ -57,10 +57,11 @@ def update_vinyl_worksheet(data):
     """
     Inserts new vinyl data from user to external spreadsheet
     """
-    vinyl_worksheet = SHEET.worksheet("vinyl_collection")
+    vinyl_worksheet = SHEET.worksheet("vinyls")
     vinyl_worksheet.append_row(data)
-    print("Your vinyl collection has been successfully updated.")
-    input('\nPress enter to go back to main menu: ')
+    print("\nYour vinyl collection has been successfully updated.")
+    input('Press enter to go back to main menu: ')
+    menu()
 
 
 def get_artist():
@@ -87,9 +88,11 @@ def get_year():
     while True:
         year = input('What year was the album released (format YYYY)? ').strip()
         if not int(year):
-            print("Invalid year, please only enter numbers")
-        elif len(year) > 4:
-            print("Invalid answer, please use format YYYY\n")
+            print("\nInvalid year, please only enter numbers")
+            continue
+        elif len(year) != 4:
+            print("\nInvalid answer, please use format YYYY\n")
+            continue
         else:
             print(f"The album was released in {year}\n")
         return year
@@ -98,7 +101,7 @@ def add_to_collection():
     """ 
     Gets data on new vinyl entry from user
     """
-    print("\nLet's add a new vinyl to the collection")
+    print("\nAbout the latest addition to your collection:")
     artist = get_artist()
     album = get_album()
     year = get_year()
@@ -116,16 +119,15 @@ def add_to_collection():
     # If input is not valid, error message will user to try again
     
     while True:
-        user_confirm = input(("\nIs this correct? y/n ").strip().lower())
+        user_confirm = input("Is this correct? y/n ").strip().lower()
         if user_confirm == "y":
             update_vinyl_worksheet(new_addition)
-        elif user_confirm == "n":
-            print("Let's start again")
             break
+        elif user_confirm == "n":
+            print("\nOkay, let's start again")
+            add_to_collection()
         else:
             print("Invalid choice, please enter either y or n\n")
-            continue
-    add_to_collection()
 
 def display_collection():
     """
