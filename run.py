@@ -55,9 +55,9 @@ def menu():
 
 def wipe():
     """
-    Wipes the screen clear between certain user interections to improve UX.
+    Wipes the terminal between certain user interections to improve UX.
     """
-    print('\033c')
+    os.system("printf '\ec'")
 
 def edit_collection():
     """
