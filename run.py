@@ -6,6 +6,7 @@ from google.oauth2.service_account import Credentials
 from tabulate import tabulate # To pretty-print tabular data in the command-line application
 import sys # To provide a programme exit for the user
 import re  # To support name and album validation
+import os # To support clearing the terminal for improved UX 
 
 # define the scope
 SCOPE = [
@@ -43,15 +44,19 @@ def menu():
     option = input(
         '\nEnter a number from 1-4 to navigate through the menu: ').strip()
 
-    if option == "4":
+    if option == "4"
+        wipe()
         print('You have now exited the programme.')
         sys.exit(0)
 
     if option == "1":
+        wipe()
         add_to_collection()
     elif option == "2":
+        wipe()
         display_collection()
     elif option == "3":
+        wipe()
         edit_collection()
     else:
         print('Invalid option.')
