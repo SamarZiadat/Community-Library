@@ -53,6 +53,12 @@ def menu():
 
     menu()
 
+def wipe():
+    """
+    Wipes the screen clear between certain user interections to improve UX.
+    """
+    print('\033c')
+
 def edit_collection():
     """
     Deletes row from external spreadsheet on users command
@@ -64,7 +70,6 @@ def edit_collection():
     print(tabulate(
         records_data, headers='keys', showindex=rowIDs, tablefmt='rounded_grid'))
     
-
 def update_vinyl_worksheet(data):
     """
     Inserts new vinyl data from user to external spreadsheet
