@@ -72,6 +72,16 @@ def menu():
 
     menu()
 
+def get_row():
+    while True:
+        row = input('Which vinyl would you like to delete? ').strip()
+        if not int(row):
+            print("\nInvalid, please enter a number")
+            continue
+        else:
+            print(f"The vinyl you would like to delete is number {row}\n")
+    return row   
+
 def edit_collection():
     """
     Deletes row from external spreadsheet on users command
@@ -84,8 +94,23 @@ def edit_collection():
     print(tabulate(
         records_data, headers='keys', showindex=rowIDs, tablefmt='rounded_grid'))
     
-    row_to_delete = input('Which vinyl would you like to delete? ').strip()
-    SHEET.delete_row(row_to_delete)
+    row_to_delete = [
+        row
+        ]
+    print(f"The row you would like to delete is row {row_to_delete}\n")
+    spreadsheet_data = [
+        {
+            "deleteDimension": {
+                "range": {
+                    "sheetId": SHEET,
+                    "dimension": "ROWS",
+                    "startIndex": {row},
+                    "endIndex": {row}}
+                }
+            }
+        }
+    ]
+    
     input('\nPress enter to go back to main menu: ')
     
 def update_vinyl_worksheet(data):
