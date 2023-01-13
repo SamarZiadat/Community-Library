@@ -28,8 +28,8 @@ def wipe():
     """
     Wipes the terminal between certain user interections to improve UX.
     """
-    os.system("printf '\ec'")
-    
+    os.system('clear')
+
 def menu():
     """
     Print menu options
