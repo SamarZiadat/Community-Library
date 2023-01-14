@@ -80,6 +80,7 @@ def get_row():
             continue
         else:
             print(f"The vinyl you would like to delete is number {row}\n")
+            break
     return row   
 
 def edit_collection():
@@ -93,25 +94,20 @@ def edit_collection():
     rowIDs = list(range(2, len(records_data) + 2))
     print(tabulate(
         records_data, headers='keys', showindex=rowIDs, tablefmt='rounded_grid'))
-    
-    row_to_delete = [
-        row
-        ]
-    print(f"The row you would like to delete is row {row_to_delete}\n")
-    spreadsheet_data = [
-        {
-            "deleteDimension": {
-                "range": {
-                    "sheetId": SHEET,
-                    "dimension": "ROWS",
-                    "startIndex": {row},
-                    "endIndex": {row}}
-                }
-            }
-        }
-    ]
-    
+    row = get_row()
+    while True:
+        user_confirm = input("Is this correct? y/n ").strip().lower()
+        if user_confirm == "y":
+            sheet_instance.delete_rows(int(row))
+            break
+        elif user_confirm == "n":
+            print("\nOkay, let's start again")
+            edit_collection()
+        else:
+            print("Invalid choice, please enter either y or n\n")
+
     input('\nPress enter to go back to main menu: ')
+    menu()
     
 def update_vinyl_worksheet(data):
     """
