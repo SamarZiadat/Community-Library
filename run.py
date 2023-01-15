@@ -116,7 +116,7 @@ def update_vinyl_worksheet(data):
     vinyl_worksheet = SHEET.worksheet("vinyls")
     vinyl_worksheet.append_row(data)
     print("\nYour vinyl collection has been successfully updated.")
-    input('Press enter to go back to main menu: ')
+    input('\nPress enter to go back to main menu: ')
     menu()
 
 def get_artist():
@@ -156,7 +156,7 @@ def add_to_collection():
     """ 
     Gets data on new vinyl entry from user
     """
-    print("\nAbout the latest addition to your collection:")
+    print("About the latest addition to your collection:\n")
     artist = get_artist()
     album = get_album()
     year = get_year()
@@ -169,7 +169,7 @@ def add_to_collection():
         ]
     
     # Confirm entry is correct with user 
-    print(f"The newest addition to your vinyl collection is {album} ({year}) by {artist}")
+    print(f"The latest addition to your vinyl collection is {album} ({year}) by {artist}")
     # While loop to either confirm entry or restart
     # If input is not valid, error message will user to try again
     
