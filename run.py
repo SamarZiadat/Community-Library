@@ -205,7 +205,7 @@ def main():
         print('4. Exit'.center(80))
 
         option = input(
-        '\n\nEnter a number from 1-4 to navigate through the menu: ').strip()
+        '\n\nEnter a number from 1-4 to navigate through the menu: '.center(80)).strip()
 
         if option == "4":
             wipe()
