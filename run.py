@@ -26,6 +26,21 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 # get the instance of the sheet
 SHEET = GSPREAD_CLIENT.open('vinyl_collection')
 
+def welcome():
+    """
+    Prints welcome message
+    """
+    print('''
+██████╗░██╗░██████╗░░██████╗░
+██╔══██╗██║██╔════╝░██╔════╝░
+██║░░██║██║██║░░██╗░██║░░██╗░
+██║░░██║██║██║░░╚██╗██║░░╚██╗
+██████╔╝██║╚██████╔╝╚██████╔╝
+╚═════╝░╚═╝░╚═════╝░░╚═════╝░\n''')
+    print('Welcome to DIGG, your vinyl collection management system.'.center(80))
+    input('Press enter to go to the main menu: '.center(80))
+welcome()
+
 def wipe():
     """
     Wipes the terminal between certain user interections to improve UX.
@@ -37,40 +52,6 @@ def wipe():
     # for mac and linux(here, os.name is 'posix')
     else:
         _ = system('clear')
-
-def menu():
-    """
-    Print menu options
-    """
-    wipe()
-    print('Menu\n')
-    print('1. Add a new vinyl to the collection')
-    print('2. Display full collection')
-    print('3. Edit collection')
-    print('4. Exit')
-
-    option = input(
-        '\nEnter a number from 1-4 to navigate through the menu: ').strip()
-
-    if option == "4":
-        wipe()
-        print('You have now exited the programme.')
-        sys.exit(0)
-
-    if option == "1":
-        wipe()
-        add_to_collection()
-    elif option == "2":
-        wipe()
-        display_collection()
-    elif option == "3":
-        wipe()
-        edit_collection()
-    else:
-        print('Invalid option.')
-        menu()
-
-    menu()
 
 def get_row():
     while True:
@@ -106,8 +87,9 @@ def edit_collection():
         else:
             print("Invalid choice, please enter either y or n\n")
 
+    print("\nYour vinyl collection has been successfully updated.")
     input('\nPress enter to go back to main menu: ')
-    menu()
+    main()
     
 def update_vinyl_worksheet(data):
     """
@@ -117,7 +99,7 @@ def update_vinyl_worksheet(data):
     vinyl_worksheet.append_row(data)
     print("\nYour vinyl collection has been successfully updated.")
     input('\nPress enter to go back to main menu: ')
-    menu()
+    main()
 
 def get_artist():
     while True:
@@ -195,8 +177,46 @@ def display_collection():
         records_data, headers='keys', tablefmt='rounded_grid'))
 
     input('\nPress enter to go back to main menu: ')
+    main()
 
 def main():
+    def menu():
+        """
+        Print menu options
+        """
+        wipe()
+        print('Menu\n'.center(80))
+        print('1. Add a new vinyl to the collection'.center(80))
+        print('2. Display full collection'.center(80))
+        print('3. Edit collection'.center(80))
+        print('4. Exit'.center(80))
+
+        option = input(
+        '\n\nEnter a number from 1-4 to navigate through the menu: ').strip()
+
+        if option == "4":
+            wipe()
+            print()
+            print()
+            print()
+            print()
+            print()
+            print()
+            print('You have now exited the programme.'.center(80))
+            sys.exit(0)
+
+        if option == "1":
+            wipe()
+            add_to_collection()
+        elif option == "2":
+            wipe()
+            display_collection()
+        elif option == "3":
+            wipe()
+            edit_collection()
+        else:
+            print('Invalid option.')
+            menu()
     menu()
 
 if __name__ == '__main__':
