@@ -26,20 +26,32 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 # get the instance of the sheet
 SHEET = GSPREAD_CLIENT.open('vinyl_collection')
 
+
+def padToCenter(l:list,w:int)->str:
+    """Manual centering"""
+    padding = ' '*(w//2)
+    parts = [padding[0: (w-len(p))//2+1]+p for p in l]
+    return '\n'.join(parts)
+
+
 def welcome():
     """
     Prints welcome message
     """
-    print('''
+    logo = '''\n\n
 ██████╗░██╗░██████╗░░██████╗░
 ██╔══██╗██║██╔════╝░██╔════╝░
 ██║░░██║██║██║░░██╗░██║░░██╗░
 ██║░░██║██║██║░░╚██╗██║░░╚██╗
 ██████╔╝██║╚██████╔╝╚██████╔╝
-╚═════╝░╚═╝░╚═════╝░░╚═════╝░\n''')
+╚═════╝░╚═╝░╚═════╝░░╚═════╝░\n\n'''
+    print(padToCenter(logo.splitlines(),80))
     print('Welcome to DIGG, your vinyl collection management system.'.center(80))
     input('Press enter to go to the main menu: '.center(80))
+
+
 welcome()
+
 
 def wipe():
     """
@@ -196,13 +208,16 @@ def main():
 
         if option == "4":
             wipe()
-            print()
-            print()
-            print()
-            print()
-            print()
-            print()
+            logo = '''\n\n
+██████╗░██╗░██████╗░░██████╗░
+██╔══██╗██║██╔════╝░██╔════╝░
+██║░░██║██║██║░░██╗░██║░░██╗░
+██║░░██║██║██║░░╚██╗██║░░╚██╗
+██████╔╝██║╚██████╔╝╚██████╔╝
+╚═════╝░╚═╝░╚═════╝░░╚═════╝░\n\n'''
+            print(padToCenter(logo.splitlines(),80))
             print('You have now exited the programme.'.center(80))
+            print('To restart the programme, press the restart button.'.center(80))
             sys.exit(0)
 
         if option == "1":
