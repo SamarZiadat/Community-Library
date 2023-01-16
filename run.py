@@ -47,7 +47,7 @@ def welcome():
 ╚═════╝░╚═╝░╚═════╝░░╚═════╝░\n\n'''
     print(padToCenter(logo.splitlines(),80))
     print('Welcome to DIGG, your vinyl collection management system.'.center(80))
-    input('Press enter to go to the main menu.'.center(80))
+    input('Press enter to go to the main menu'.center(80))
 welcome()
 
 def wipe():
@@ -174,6 +174,7 @@ def add_to_collection():
         elif user_confirm == "n":
             wipe()
             print("\nOkay, let's start again")
+            time.sleep(2)
             add_to_collection()
         else:
             print("Invalid choice, please enter either y or n\n")
