@@ -76,9 +76,9 @@ def get_row():
     Provides a question to the user asking:
     What is the row number of the vinyl you would like to delete?
         Params:
-            While loop requests user to input a number from a range valid row numbers
-            If valid while loop breaks
-            Else requests the user tries again
+            While loop requests user to input a number from a range of existing row numbers
+            If not valid, user is given error message and asked to try again
+            Else selected row is printed back to user and while loop breaks
         Returns:
             row: used within edit_collection()
     """
