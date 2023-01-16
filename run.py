@@ -115,7 +115,7 @@ def update_vinyl_worksheet(data):
 def get_artist():
     while True:
         artist = input('Enter the artist name: ').strip()
-        if re.match(r"[\s\S\?]", artist):
+        if re.match(r"[\s\S]", artist):
             print(f"The artist name is {artist}\n")
         else:
             print("Invalid name\n")
@@ -125,7 +125,7 @@ def get_artist():
 def get_album():
     while True:
         album = input('Enter the album title: ').strip()
-        if re.match(r"[\s\S\?]", album):
+        if re.match(r"[\s\S]", album):
             print(f"The album title is {album}\n")
         else:
             print("Invalid album title\n")
@@ -151,8 +151,11 @@ def add_to_collection():
     """
     print("About the latest addition to your collection:\n")
     artist = get_artist()
+    main()
     album = get_album()
+    main()
     year = get_year()
+    main()
     
     # List collate the returned values from functions to confirm new vinyl entry
     new_addition = [
