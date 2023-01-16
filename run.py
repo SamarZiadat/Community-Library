@@ -171,7 +171,7 @@ def get_year():
         Params:
             While loop validates if numbers are inputted using re
             If exclusively numbers are not used, while loop breaks and user is asked to try again
-            If exclusively nubers are used, then it is checked if the string. length is 4. 
+            If exclusively numbers are used, then it is checked if the string. length is 4. 
             If not valid, user is asked to try again. If valid, year is printed back to user.
         Returns:
             year: used within add_to_collection
