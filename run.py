@@ -135,7 +135,7 @@ def get_album():
 def get_year():
     while True:
         year = input('What year was the album released (format YYYY)? ').strip()
-        if not int(year):
+        if not re.match('^[0-9]+$', year): 
             print("\nInvalid year, please only enter numbers")
             continue
         elif len(year) != 4:
@@ -174,7 +174,7 @@ def add_to_collection():
         elif user_confirm == "n":
             wipe()
             print("\nOkay, let's start again")
-            time.sleep(2)
+            time.sleep(1)
             add_to_collection()
         else:
             print("Invalid choice, please enter either y or n\n")
