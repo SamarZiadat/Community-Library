@@ -82,10 +82,14 @@ def get_row():
         Returns:
             row: used within edit_collection()
     """
+    sheet_instance = SHEET.get_worksheet(0)
+    records_data = sheet_instance.get_all_records()
+    rowIDs = list(range(2, len(records_data) + 2))
+
     while True:
         row = input('What is the row number of the vinyl you would like to delete? ').strip()
-        if not int(row):
-            print("\nInvalid, please enter a number")
+        if not row.isdigit() or not int(row) in rowIDs:
+            print("\nInvalid, please enter a listed row number")
             continue
         else:
             print(f"The vinyl you would like to delete is number {row}\n")
