@@ -44,4 +44,62 @@ I created a flowchart to detail the logic flow of the application before I began
 -   #### Imagery
     
      The background image is the only image used in the application, and it is a free stock image sourced from [Pexels](https://www.pexels.com/). 
+
+## Technologies Used
+-   [HTML5](https://en.wikipedia.org/wiki/HTML)  - Provides the content and structure for the website.
+-   [CSS3](https://en.wikipedia.org/wiki/CSS)  - Provides the styling for the website.
+-   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))  - Provides the functionality of the website.
+-   [Favicon](https://favicon.io/)  - Used to create the favicon.
+-   [Compressor](https://compressor.io/)  - Used to compress the images.
+-   [VSCode](https://code.visualstudio.com/)  - Used to create and edit the website.
+-   [GitHub](https://github.com/)  - Used to host and deploy the website.
+-   [GitBash](https://en.wikipedia.org/wiki/Bash_(Unix_shell))  - Terminal used to push changes to the GitHub repository.
+-   [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/)  - Used to test responsiveness and debug.
+-   [Balsamiq](https://balsamiq.com/)  - Used to create the wire-frame.
+-   [Lucidchart](https://www.lucidchart.com/)  - Used to create the logic flow chart.
+-   [Google Sheets](https://www.google.co.uk/sheets/about/)  - Used to host the application data.
+- [Tech Sini](https://techsini.com/multi-mockup/) - Used to generate the mockup of the app.
+- [Fsymbols](https://fsymbols.com/generators/carty/) - Used to generate ASCII art.
+- [Pexels](https://www.pexels.com/) - Used to source free stock image for background.
+## Python Packages
+
+-   [GSpread](https://pypi.org/project/gspread/)  - Used to transfer data between google sheets.
+-   [Colorama](https://pypi.org/project/colorama/)  - Used to add colours to the terminal.
+-   [OS](https://docs.python.org/3/library/os.html)  - Used to provide a way of using operating system dependent functionality.
+-   [Time](https://docs.python.org/3/library/time.html)  - Used to provide various time-related functions.
+-   [Sys](https://docs.python.org/3/library/sys.html)  - Used to provide access to some variables used or maintained by the interpreter.
+-   [Tabulate](https://pypi.org/project/tabulate/)  - Used to print data in a nice table format.
+- [Re - Regular expression operations](https://docs.python.org/3/library/re.html#) - Used to validate user input.
+
+### Browser Compatibility
+
+-   Testing has been carried out on the following browsers :
+    -   Chrome Version 107.0.5304.87
+    -   Edge Version 107.0.1418.24
+    -   Firefox Version 94.0.1
+    -   Safari on macOS (Safari Version 15.6)
+
+# Deployment To Heroku
+
+The project was deployed to  [Heroku](https://www.heroku.com/). The deployment process is as follows:
+
+1.  Log in to Heroku or create an account if required.
+
+2.  Click the button labeled New from the dashboard in the top right corner, just below the header and then select "Create new app".
+
+3.  Enter a unique application name and then select your region. Once you are ready, click "Create app".
+
+4.  This will bring you to the project "Deploy" tab. From here, click the "Settings" tab and scroll down to the "Config Vars" section and click on "Reveal Config Vars". In the KEY input field, enter "PORT" and in the VALUE input field, enter "8000". After that, click the "Add" button to the right.
+
+5.  Scroll down to the buildpacks section of the settings page and click the button "Add buildpack". 
+
+6.  Add both "Python" and "node.js" and make sure that Python is above node.js. If it isn't you can just drag it above.
+
+7.  Scroll back to the top of the settings page, and navigate to the "Deploy" tab. Select Github as the deployment method.
+
+8.  Search for the repository name and click the connect button next to the intended repository.
+
+9.  From the bottom of the deploy page select your preferred deployment type. I personally enabled automatic deployments. After that, click "Deploy Branch".
+
+
      
