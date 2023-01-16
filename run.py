@@ -30,7 +30,7 @@ SHEET = GSPREAD_CLIENT.open('vinyl_collection')
 
 def pad_to_centre(l, w):
     """
-    Manual centering of ASCI art logo
+    Manual centering of ASCI art logo. 
     """
     padding = ' '*(w//2)
     parts = [padding[0: (w-len(p))//2+1]+p for p in l]
