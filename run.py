@@ -196,6 +196,7 @@ def main():
         """
         Print menu options
         """
+        wipe()
         print("\n\n\n\n\n")
         print('Menu\n'.center(80))
         print('1. Add a new vinyl to the collection'.center(80))
