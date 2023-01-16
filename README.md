@@ -1,31 +1,47 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1  align="center">Digg: A Vinyl Collection Management System</h1>
 
-Welcome SamarZiadat,
+View the live project [here](https://digg.herokuapp.com/).
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+Digg is a command line interface styled application that allows users to manage their home vinyl record collections. The app functions as a management system that allows users to easily access an overview of their collection and edit it, without having to manually dig through their home vinyl collection. Vinyl collections, especially if large, can be a challenge to manually search through (unlike books, CDs, or cassettes, for example, which have spines). The act of looking through ones vinyl collection, or searching through crates of vinyl in a record store, is known as ['digging' or 'crate digging'](https://en.wiktionary.org/wiki/cratedigger) in the vinyl-collecting community - hence the name 'Digg'. 
 
-## Reminders
+## Table of Contents
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+-   [User Experience (UX)](#)
+-   [Features](#)
+-   [Technologies Used](#)
+-   [Testing](#)
+-   [Deployment](#)
+-   [Credits](#)
 
-## Creating the Heroku app
+## User experience (UX)
+  **User Stories**
+I want to...
+ 1. easily understand the main purpose of the app 
+ 2. be able to easily navigate through the app 
+ 3. add my vinyl collection to the management system
+ 4. view my full collection in a table format 
+ 5. remove vinyls from the management system
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+### Design Prototype
 
-1. `heroku/python`
-2. `heroku/nodejs`
+The main objective of this project is to demonstrate competency in Python, however, adherence to high presentation standards is also key. With the application being a command line interface, choices in design were limited, but carefully planned and delivered. The very first design prototype was created using [Balsamiq](https://balsamiq.com/). 
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+![Wireframe](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/wireframe.png?raw=true)
+### Site Structure
+Digg is a one-page website that has a command line interface in the centre. When the application stars the user is welcomed by a stylised terminal page that includes the name of the app, one line to describe the purpose of the app, and instructions on how to proceed. Keeping user experience in mind throughout, the user is given the opportunity to return to the menu at key stages. The application also features a static 'RESTART PROGRAMME' button which the user can press to restart the application at any time. 
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+### Python Logic
 
-Connect your GitHub repository and deploy as normal.
+I created a flowchart to detail the logic flow of the application before I began coding. This was an essential tool that provided a detailed outline of how the user will navigate the application. The flowchart was created using [Lucidchart](https://www.lucidchart.com/).
+![Flowchart](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/flowchart.jpeg?raw=true)
+## Data Model
+[Google Sheets](https://www.google.co.uk/sheets/about/)  was used to store the application data. This acted as a database where data would be sent to and also retrieved from. The Google Sheet that I created can be accessed [here](%5BGoogle%20Sheet%5D%28https://docs.google.com/spreadsheets/d/1VfUBCKy-KVL_C9G4xRcqCyoZqnXmzN99nohblpJxSrE/edit?usp=sharing%29). ![Google sheet](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/google-sheet.png?raw=true)
+### Design Choices
+-   #### Typography
+    
+     ASCII art was used to create a logo that present on the start-up and exit display on the command line. It was a simple way to add interest to a paired back interface. [This](https://fsymbols.com/generators/carty/) text to ASCII art generator was used to produce the logo used.
 
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+-   #### Imagery
+    
+     The background image is the only image used in the application, and it is a free stock image sourced from [Pexels](https://www.pexels.com/). 
+     
