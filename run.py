@@ -33,7 +33,6 @@ def padToCenter(l:list,w:int)->str:
     parts = [padding[0: (w-len(p))//2+1]+p for p in l]
     return '\n'.join(parts)
 
-
 def welcome():
     """
     Prints welcome message
@@ -47,11 +46,8 @@ def welcome():
 ╚═════╝░╚═╝░╚═════╝░░╚═════╝░\n\n'''
     print(padToCenter(logo.splitlines(),80))
     print('Welcome to DIGG, your vinyl collection management system.'.center(80))
-    input('Press enter to go to the main menu: '.center(80))
-
-
+    input('Press enter to go to the main menu.'.center(80))
 welcome()
-
 
 def wipe():
     """
@@ -173,6 +169,7 @@ def add_to_collection():
             update_vinyl_worksheet(new_addition)
             break
         elif user_confirm == "n":
+            wipe()
             print("\nOkay, let's start again")
             add_to_collection()
         else:
@@ -205,11 +202,11 @@ def main():
         print('4. Exit'.center(80))
 
         option = input(
-        '\n\nEnter a number from 1-4 to navigate through the menu: '.center(80)).strip()
+        '\n\nEnter a number from 1-4 to navigate through the menu: ').strip()
 
         if option == "4":
             wipe()
-            logo = '''\n\n\n\n
+            logo = '''\n\n
 ██████╗░██╗░██████╗░░██████╗░
 ██╔══██╗██║██╔════╝░██╔════╝░
 ██║░░██║██║██║░░██╗░██║░░██╗░
