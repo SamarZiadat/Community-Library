@@ -8,6 +8,7 @@ import sys # To provide a programme exit for the user
 import re  # To support name and album validation
 import os # To support clearing the terminal for improved UX 
 from os import system, name
+import time # To create delays before certain functionalities
 
 # define the scope
 SCOPE = [
@@ -63,7 +64,7 @@ def wipe():
 
 def get_row():
     while True:
-        row = input('Which vinyl would you like to delete? ').strip()
+        row = input('What is the row number of the vinyl you would like to delete? ').strip()
         if not int(row):
             print("\nInvalid, please enter a number")
             continue
@@ -84,6 +85,7 @@ def edit_collection():
     print(tabulate(
         records_data, headers='keys', showindex=rowIDs, tablefmt='rounded_grid'))
     row = get_row()
+
     while True:
         user_confirm = input("Is this correct? y/n ").strip().lower()
         if user_confirm == "y":
@@ -91,12 +93,13 @@ def edit_collection():
             break
         elif user_confirm == "n":
             print("\nOkay, let's start again")
+            time.sleep(2)
             edit_collection()
         else:
             print("Invalid choice, please enter either y or n\n")
 
     print("\nYour vinyl collection has been successfully updated.")
-    input('\nPress enter to go back to main menu: ')
+    input('\nPress enter to go back to main menu.')
     main()
     
 def update_vinyl_worksheet(data):
@@ -106,7 +109,7 @@ def update_vinyl_worksheet(data):
     vinyl_worksheet = SHEET.worksheet("vinyls")
     vinyl_worksheet.append_row(data)
     print("\nYour vinyl collection has been successfully updated.")
-    input('\nPress enter to go back to main menu: ')
+    input('\nPress enter to go back to main menu.')
     main()
 
 def get_artist():
@@ -185,7 +188,7 @@ def display_collection():
     print(tabulate(
         records_data, headers='keys', tablefmt='rounded_grid'))
 
-    input('\nPress enter to go back to main menu: ')
+    input('\nPress enter to go back to main menu.')
     main()
 
 def main():
@@ -193,7 +196,6 @@ def main():
         """
         Print menu options
         """
-        wipe()
         print("\n\n\n\n\n")
         print('Menu\n'.center(80))
         print('1. Add a new vinyl to the collection'.center(80))
@@ -229,6 +231,7 @@ def main():
             edit_collection()
         else:
             print('Invalid option.')
+            time.sleep(2)
             menu()
     menu()
 
