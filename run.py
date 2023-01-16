@@ -243,7 +243,6 @@ def display_collection():
 
 def main():
     """
-    Execute main Python function
     Provides a Main Menu with 4 choices.
     Params:
         Requests user to input a number between 1-4
@@ -287,4 +286,5 @@ def main():
     main()
 
 if __name__ == '__main__':
+    # Execute main Python function
     main()
