@@ -2,7 +2,7 @@
 
 View the live project [here](https://digg.herokuapp.com/).
 
-Digg is a command line interface styled application that allows users to manage their home vinyl record collections. The app functions as a management system that allows users to easily access an overview of their collection and edit it, without having to manually dig through their home vinyl collection. Vinyl collections, especially if large, can be a challenge to manually search through (unlike books, CDs, or cassettes, for example, which have spines). The act of looking through ones vinyl collection, or searching through crates of vinyl in a record store, is known as ['digging' or 'crate digging'](https://en.wiktionary.org/wiki/cratedigger) in the vinyl-collecting community - hence the name 'Digg'. 
+Digg is a command line interface styled application that allows users to manage their home vinyl record collections. The app functions as a management system that allows users to easily access an overview of their collection and edit it, without having to manually dig through their home vinyl collection. The act of looking through ones vinyl collection, or searching through crates of vinyl in a record store, is known as ['digging' or 'crate digging'](https://en.wiktionary.org/wiki/cratedigger) in the vinyl-collecting community - hence the name 'Digg'. 
 
 ![enter image description here](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/mockup.png?raw=true)
 
