@@ -8,23 +8,16 @@ Digg is a command line interface styled application that allows users to manage 
 
 -   [User Experience (UX)](#)
 -   [Features](#)
--   [Technologies Used](#)
+-   [Technology](#)
 -   [Testing](#)
 -   [Deployment](#)
 -   [Credits](#)
 
 ## User experience (UX)
-  **User Stories**
-I want to...
- 1. easily understand the main purpose of the app 
- 2. be able to easily navigate through the app 
- 3. add my vinyl collection to the management system
- 4. view my full collection in a table format 
- 5. remove vinyls from the management system
 
 ### Design Prototype
 
-The main objective of this project is to demonstrate competency in Python, however, adherence to high presentation standards is also key. With the application being a command line interface, choices in design were limited, but carefully planned and delivered. The very first design prototype was created using [Balsamiq](https://balsamiq.com/). 
+The main objective of this project is to demonstrate competency in Python, however, adherence to high presentation standards is also key. With the application being a command line interface, choices in design were limited, but carefully planned and delivered. The very first design prototype was created using [Balsamiq](https://balsamiq.com/).
 
 ![Wireframe](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/wireframe.png?raw=true)
 ### Site Structure
@@ -34,18 +27,69 @@ Digg is a one-page website that has a command line interface in the centre. When
 
 I created a flowchart to detail the logic flow of the application before I began coding. This was an essential tool that provided a detailed outline of how the user will navigate the application. The flowchart was created using [Lucidchart](https://www.lucidchart.com/).
 ![Flowchart](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/flowchart.jpeg?raw=true)
-## Data Model
+### Data Model
 [Google Sheets](https://www.google.co.uk/sheets/about/)  was used to store the application data. This acted as a database where data would be sent to and also retrieved from. The Google Sheet that I created can be accessed [here](%5BGoogle%20Sheet%5D%28https://docs.google.com/spreadsheets/d/1VfUBCKy-KVL_C9G4xRcqCyoZqnXmzN99nohblpJxSrE/edit?usp=sharing%29). ![Google sheet](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/google-sheet.png?raw=true)
 ### Design Choices
--   #### Typography
+ -   #### Typography
     
      ASCII art was used to create a logo that present on the start-up and exit display on the command line. It was a simple way to add interest to a paired back interface. [This](https://fsymbols.com/generators/carty/) text to ASCII art generator was used to produce the logo used.
 
--   #### Imagery
+ -   #### Imagery
     
      The background image is the only image used in the application, and it is a free stock image sourced from [Pexels](https://www.pexels.com/). 
 
-## Technologies Used
+## Features
+### Existing Features
+#### Startup Display
+ - This is how the terminal will display when the user first loads the application 
+ - ASCI art has been utilised to create a logo and to add visual interest 
+ - A welcome message greets the user as well as informs them of the purpose of the application
+ - The user easily proceeds to the main menu by entering the 'enter' key on their keyboard
+ 
+![Startup display](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/start-up-image.png?raw=true) 
+
+#### Menu 
+ - This is the main application menu, which is displayed when the user travels from the startup display
+ - The user is given 4 options to navigate through: adding a new vinyl to the management system, displaying the whole collection, editing the collection, and exiting the programme. 
+ - In order to navigate through the menu the user is required to enter a number from 1 to 4 and then press the 'enter' key
+
+![Menu display](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/menu-image.png?raw=true)
+
+#### Add a new vinyl to the collection
+ - If the user selects option '1' from the main application menu, this is what displays in the terminal
+ - The user is walked through entering the new information for their vinyl record. Data collection includes the artist name, album name, and the album's year of release
+ - Once the user has inputted their answer for these three pieces of data, the data is presented back to them and they have the choice to confirm this data as accurate, or start again in the process of data input
+ - Once the data is confirmed to be correct, this information is added to the external Google Sheet. The user then has the option to return to the menu by pressing the 'enter' key 
+ 
+![Add a new vinyl](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/addition-image.png?raw=true)
+#### Display full collection
+ - If the user selects option '2' from the main application menu, this is what displays in the terminal
+ - The data collected about the vinyl collection is retrieved from the external Google Sheet and presented in a table format using tabulate
+ - The user then has the option to return to the menu by pressing the 'enter' key 
+
+![Display full collection](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/display-collection-image.png?raw=true)
+
+#### Edit collection
+ - If the user selects option '3' from the main application menu, this is what displays in the terminal
+ - The data collected about the vinyl collection is retrieved from the external Google Sheet and presented in a table format using tabulate. 
+ - The user is asked to identify which vinyl they would like to remove the management system. The vinyl is identified by the user through its row number
+ - The user is given an opportunity to confirm if the vinyl they have selected is the one to be deleted. If they choose 'n', they are asked to try to pick a vinyl again. If they choose 'y', the user then has the option to return to the menu by pressing the 'enter' key 
+
+![Edit collection](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/edit-image.png?raw=true)
+
+#### Exit
+- If the user selects option '4' from the main application menu, this is what displays in the terminal
+- The ASCII logo is displayed, as well as message to let the user know that the programme has not been exited
+- Instructions are given to the user on how to restart the programme
+
+![Exit programme ](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/exit-image.png?raw=true)
+
+### Future Features
+There is a lot of room from expansion of features in this application. This includes building a user login function, as well as providing the option to edit a vinyl entry beyond deletion.
+
+## Technology
+
+### Technologies Used
 -   [HTML5](https://en.wikipedia.org/wiki/HTML)  - Provides the content and structure for the website.
 -   [CSS3](https://en.wikipedia.org/wiki/CSS)  - Provides the styling for the website.
 -   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))  - Provides the functionality of the website.
@@ -100,6 +144,7 @@ The project was deployed to  [Heroku](https://www.heroku.com/). The deployment p
 8.  Search for the repository name and click the connect button next to the intended repository.
 
 9.  From the bottom of the deploy page select your preferred deployment type. I personally enabled automatic deployments. After that, click "Deploy Branch".
+
 
 
      
