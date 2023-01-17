@@ -1,14 +1,14 @@
 """
 Imported libraries supporting the application
 """
-import gspread  # To open and edit vinyl collection spreadsheet
-from google.oauth2.service_account import Credentials
-from tabulate import tabulate  # To pretty-print tabular data in the command-line application
 import sys  # To provide a programme exit for the user
 import re   # To support name and album validation
 import os  # To support clearing the terminal for improved UX
 from os import system, name
 import time  # To create delays before certain functionalities
+import gspread  # To open and edit vinyl collection spreadsheet
+from google.oauth2.service_account import Credentials
+from tabulate import tabulate  # To pretty-print tabular data in the command-line application
 
 # define the scope
 SCOPE = [
@@ -37,7 +37,7 @@ def pad_to_centre(l, w):
     return '\n'.join(parts)
 
 
-def logo():
+def print_logo():
     """
     Prints ASCI art logo
     """
@@ -55,7 +55,7 @@ def welcome():
     """
     Prints welcome message
     """
-    logo()
+    print_logo()
     print('Welcome to DIGG, your vinyl collection management system.'.center(80))
     input('Press enter to go to the main menu'.center(80))
 
@@ -90,11 +90,11 @@ def get_row():
     """
     sheet_instance = SHEET.get_worksheet(0)
     records_data = sheet_instance.get_all_records()
-    rowIDs = list(range(2, len(records_data) + 2))
+    row_ids = list(range(2, len(records_data) + 2))
 
     while True:
         row = input('What is the row number of the vinyl you would like to delete? ').strip()
-        if not row.isdigit() or not int(row) in rowIDs:
+        if not row.isdigit() or int(row) not in row_ids:
             print('\nInvalid, please enter a listed row number')
             continue
         else:
@@ -118,9 +118,9 @@ def edit_collection():
  
     sheet_instance = SHEET.get_worksheet(0)
     records_data = sheet_instance.get_all_records()
-    rowIDs = list(range(2, len(records_data) + 2))
+    row_ids = list(range(2, len(records_data) + 2))
     print(tabulate(
-        records_data, headers='keys', showindex=rowIDs, tablefmt='rounded_grid'))
+        records_data, headers='keys', showindex=row_ids, tablefmt='rounded_grid'))
     row = get_row()
 
     while True:
@@ -283,7 +283,7 @@ def main():
 
     if option == "4":
         wipe()
-        logo()
+        print_logo()
         print('You have now exited the programme.'.center(80))
         print('To restart the programme, press the restart button.'.center(80))
         sys.exit(0)
