@@ -89,10 +89,10 @@ def get_row():
     while True:
         row = input('What is the row number of the vinyl you would like to delete? ').strip()
         if not row.isdigit() or not int(row) in rowIDs:
-            print("\nInvalid, please enter a listed row number")
+            print('\nInvalid, please enter a listed row number')
             continue
         else:
-            print(f"The vinyl you would like to delete is number {row}\n")
+            print(f'The vinyl you would like to delete is number {row}\n')
             break
     return row   
 
@@ -117,8 +117,8 @@ def edit_collection():
     row = get_row()
 
     while True:
-        user_confirm = input("Is this correct? y/n ").strip().lower()
-        if user_confirm == "y":
+        user_confirm = input('Is this correct? y/n ').strip().lower()
+        if user_confirm == 'y':
             sheet_instance.delete_rows(int(row))
             break
         elif user_confirm == "n":
@@ -128,7 +128,7 @@ def edit_collection():
         else:
             print("Invalid choice, please enter either y or n\n")
 
-    print("\nYour vinyl collection has been successfully updated.")
+    print('\nYour vinyl collection has been successfully updated.')
     input('\nPress enter to go back to main menu.')
     main()
     
@@ -138,9 +138,9 @@ def update_vinyl_worksheet(data):
     This user data is collated in add_to_collection()
     Printed message lets user know addition is successful
     """
-    vinyl_worksheet = SHEET.worksheet("vinyls")
+    vinyl_worksheet = SHEET.worksheet('vinyls')
     vinyl_worksheet.append_row(data)
-    print("\nYour vinyl collection has been successfully updated.")
+    print('\nYour vinyl collection has been successfully updated.')
     input('\nPress enter to go back to main menu.')
     main()
 
@@ -153,7 +153,7 @@ def get_artist():
         artist: used within add_to_collection
     """
     artist = input('Enter the artist name: ').strip()
-    print(f"The artist name is {artist}\n")
+    print(f'The artist name is {artist}\n')
     return artist
 
 def get_album():
@@ -165,7 +165,7 @@ def get_album():
         album: used within add_to_collection
     """
     album = input('Enter the album title: ').strip()
-    print(f"The album title is {album}\n")
+    print(f'The album title is {album}\n')
     return album
 
 def get_year():
@@ -183,13 +183,13 @@ def get_year():
     while True:
         year = input('What year was the album released (format YYYY)? ').strip()
         if not re.match('^[0-9]+$', year): 
-            print("\nInvalid year, please only enter numbers")
+            print('\nInvalid year, please only enter numbers')
             continue
         elif len(year) != 4:
-            print("\nInvalid answer, please use format YYYY\n")
+            print('\nInvalid answer, please use format YYYY\n')
             continue
         else:
-            print(f"The album was released in {year}\n")
+            print(f'The album was released in {year}\n')
         return year
 
 def add_to_collection():
@@ -215,13 +215,13 @@ def add_to_collection():
         ]
     
     # Confirm entry is correct with user 
-    print(f"The latest addition to your vinyl collection is {album} ({year}) by {artist}")
+    print(f'The latest addition to your vinyl collection is {album} ({year}) by {artist}')
     # While loop to either confirm entry or restart
     # If input is not valid, error message will user to try again
     
     while True:
-        user_confirm = input("Is this correct? y/n ").strip().lower()
-        if user_confirm == "y":
+        user_confirm = input('Is this correct? y/n ').strip().lower()
+        if user_confirm == 'y':
             update_vinyl_worksheet(new_addition)
             break
         elif user_confirm == "n":
@@ -230,7 +230,7 @@ def add_to_collection():
             time.sleep(1)
             add_to_collection()
         else:
-            print("Invalid choice, please enter either y or n\n")
+            print('Invalid choice, please enter either y or n\n')
 
 def display_collection():
     """
@@ -275,13 +275,13 @@ def main():
         print('To restart the programme, press the restart button.'.center(80))
         sys.exit(0)
 
-    if option == "1":
+    if option == '1':
         wipe()
         add_to_collection()
-    elif option == "2":
+    elif option == '2':
         wipe()
         display_collection()
-    elif option == "3":
+    elif option == '3':
         wipe()
         edit_collection()
     else:
