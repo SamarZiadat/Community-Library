@@ -4,14 +4,16 @@ View the live project [here](https://digg.herokuapp.com/).
 
 Digg is a command line interface styled application that allows users to manage their home vinyl record collections. The app functions as a management system that allows users to easily access an overview of their collection and edit it, without having to manually dig through their home vinyl collection. Vinyl collections, especially if large, can be a challenge to manually search through (unlike books, CDs, or cassettes, for example, which have spines). The act of looking through ones vinyl collection, or searching through crates of vinyl in a record store, is known as ['digging' or 'crate digging'](https://en.wiktionary.org/wiki/cratedigger) in the vinyl-collecting community - hence the name 'Digg'. 
 
+![enter image description here](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/mockup.png?raw=true)
+
 ## Table of Contents
 
--   [User Experience (UX)](#)
--   [Features](#)
--   [Technology](#)
--   [Testing](#)
--   [Deployment](#)
--   [Credits](#)
+-   User Experience (UX)
+-   Features
+-   Technology
+-   Testing
+-   Deployment
+-   Credits
 
 ## User experience (UX)
 
@@ -85,7 +87,7 @@ I created a flowchart to detail the logic flow of the application before I began
 ![Exit programme ](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/exit-image.png?raw=true)
 
 ### Future Features
-There is a lot of room from expansion of features in this application. This includes building a user login function, as well as providing the option to edit a vinyl entry beyond deletion.
+There is a lot of room from expansion of features in this application. This includes building a user login function, as well as providing the option to edit a vinyl entry beyond deletion. This project is not required to be fully responsive, and so because of time limitations it is not fully responsive on all devices - making this a feature in the future would be crucial.
 
 ## Technology
 
@@ -105,7 +107,7 @@ There is a lot of room from expansion of features in this application. This incl
 - [Tech Sini](https://techsini.com/multi-mockup/) - Used to generate the mockup of the app.
 - [Fsymbols](https://fsymbols.com/generators/carty/) - Used to generate ASCII art.
 - [Pexels](https://www.pexels.com/) - Used to source free stock image for background.
-## Python Packages
+### Python Packages
 
 -   [GSpread](https://pypi.org/project/gspread/)  - Used to transfer data between google sheets.
 -   [Colorama](https://pypi.org/project/colorama/)  - Used to add colours to the terminal.
@@ -115,15 +117,53 @@ There is a lot of room from expansion of features in this application. This incl
 -   [Tabulate](https://pypi.org/project/tabulate/)  - Used to print data in a nice table format.
 - [Re - Regular expression operations](https://docs.python.org/3/library/re.html#) - Used to validate user input.
 
-### Browser Compatibility
+## Testing
+### Code Validation
+The code has been validated by using online validation tools  [W3C HTML Validator](https://validator.w3.org/) and [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
--   Testing has been carried out on the following browsers :
+-   W3C HTML Validator results:
+![HTML validation](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/html-validation.png?raw=true)
+
+- W3C CSS Validator results:
+![CSS validation](https://github.com/SamarZiadat/Vinyl-Collection-Management-System/blob/main/documentation/supporting-images/css-validation.png?raw=true)
+
+### Browser Compatibility
+Testing has been carried out on the following browsers :
     -   Chrome Version 107.0.5304.87
     -   Edge Version 107.0.1418.24
     -   Firefox Version 94.0.1
     -   Safari on macOS (Safari Version 15.6)
 
-# Deployment To Heroku
+### Manual Testing
+I have conducted manual logic testing to make sure that the python code is working as intended:
+
+ - **Startup Display**
+	 - Verify that if the user enters the 'enter' key that they will navigate to the Menu.
+ - **Main Menu**
+	 - Verify that the user receives an invalid input message if their input doesn't pass validation 
+	 - Verify that all menu options load as intended
+   if the user enters the right key
+ -  **Add a new vinyl to the collection**
+	 -	Verify that the user receives an invalid input message if their input doesn't pass validation 
+	 -	Verify that the data printed back to the user matches what they have entered
+	 -	Verify that if the user enters a valid input message in response to confirming this addition that they are navigate to the right display
+	 - Verify that if the user enters the 'enter' key that they will navigate to the Menu.
+- **Display full collection**
+	- Verify that the table presented matches that of the external spreadsheet
+	- Verify that the table is tabulated as expected
+	 -	Verify that if the user enters the 'enter' key that they will navigate to the Menu.
+ -  **Edit collection**
+	 - Verify that the table presented matches that of the external spreadsheet
+	- Verify that the table is tabulated as expected, including displaying index numbers that match those of the external spreadsheet
+	-Verify that the user receives an invalid input message if their input doesn't pass validation 
+	- Verify that if the user enters a valid response, that the correct row is deleted 
+	- Verify that if the user confirms deletion that they are receive a message to say that the spreadsheet has been updated
+	- 	Verify that if the rejects confirmation for deletion that they are asked to enter a row index number again
+    -	Verify that if the user enters the 'enter' key that they will navigate to the Menu.
+   -   **Exit App**
+		 - Verify that when the user exits the app, that they are presented with the logo, confirmation that the app has been exited, and instructions on how to restart the programme
+
+## Deployment To Heroku
 
 The project was deployed to  [Heroku](https://www.heroku.com/). The deployment process is as follows:
 
@@ -145,6 +185,27 @@ The project was deployed to  [Heroku](https://www.heroku.com/). The deployment p
 
 9.  From the bottom of the deploy page select your preferred deployment type. I personally enabled automatic deployments. After that, click "Deploy Branch".
 
+## Credits
 
+### Content
 
+- All content was written by the developer
+
+### Code
+
+-   Code to clear a python terminal with a call: https://www.geeksforgeeks.org/clear-screen-python/
+
+-  Tutorial on the time.sleep() method: https://www.freecodecamp.org/news/python-sleep-time-sleep-in-python/
+    
+-   Documentation on __ main __: https://www.geeksforgeeks.org/what-does-the-if-__name__-__main__-do/
+
+-   Stack Overflow answer on how to centre multi-line ASCII art: 
+https://stackoverflow.com/questions/49745662/centering-ascii-graphics-python
+    
+### Media
+    
+- Background image was sources from Pexels: https://www.pexels.com/photo/vinyl-record-1374557/
      
+### Acknowledgments
+
+Thank you to my mentor Brian Macharia who gave me excellent advice and feedback on how to plan and execute this project and who provided me with lots of pointers and resources to help with design, coding and testing.   
