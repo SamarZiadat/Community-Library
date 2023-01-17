@@ -8,7 +8,7 @@ from os import system, name
 import time  # To create delays before certain functionalities
 import gspread  # To open and edit vinyl collection spreadsheet
 from google.oauth2.service_account import Credentials
-from tabulate import tabulate  # To pretty-print tabular data in the command-line application
+from tabulate import tabulate  # To pretty-print tabular data
 
 # define the scope
 SCOPE = [
@@ -56,7 +56,8 @@ def welcome():
     Prints welcome message
     """
     print_logo()
-    print('Welcome to DIGG, your vinyl collection management system.'.center(80))
+    print(
+        'Welcome to DIGG, your vinyl collection management system.'.center(80))
     input('Press enter to go to the main menu'.center(80))
 
 
@@ -66,7 +67,8 @@ welcome()
 def wipe():
     """
     Wipes the terminal between certain user interections to improve UX
-    This code is from a Geeks for Geeks tutorial: https://www.geeksforgeeks.org/clear-screen-python/
+    This code is from a Geeks for Geeks
+    tutorial: https://www.geeksforgeeks.org/clear-screen-python/
     """
     # for windows
     if name == 'nt':
@@ -82,7 +84,7 @@ def get_row():
     Provides a question to the user asking:
     What is the row number of the vinyl you would like to delete?
         Params:
-            While loop requests user to input a number from a range of existing row numbers
+            While loop requests user input be a num from an existing range
             If not valid, user is given error message and asked to try again
             Else selected row is printed back to user and while loop breaks
         Returns:
@@ -93,7 +95,9 @@ def get_row():
     row_ids = list(range(2, len(records_data) + 2))
 
     while True:
-        row = input('What is the row number of the vinyl you would like to delete? ').strip()
+        row = input(
+            'What is the row number of the vinyl you would like to delete? '
+            ).strip()
         if not row.isdigit() or int(row) not in row_ids:
             print('\nInvalid, please enter a listed row number')
             continue
@@ -105,12 +109,14 @@ def get_row():
 
 def edit_collection():
     """
-    Prints the only worksheet in the external google sheet.
-    Matches index numbers for each row in the tabulated table with that of the index numbers in the external spreadsheet.
+    Prints the only worksheet in the external google sheet
+    Matches row index numbers of tabulated data with those in google sheet
     Provides a question asking user to confirm their row selection
         Params:
             While loop requests user to input y or n
-            If y is chosen, while loop breaks and row is deleted. Confirmation message prints.
+            If y is chosen:
+                While loop breaks and row is deleted
+                Confirmation message prints
             If n is chosen, user is told to start again and loop runs again
             Else requests the user tries again
     """
@@ -120,7 +126,8 @@ def edit_collection():
     records_data = sheet_instance.get_all_records()
     row_ids = list(range(2, len(records_data) + 2))
     print(tabulate(
-        records_data, headers='keys', showindex=row_ids, tablefmt='rounded_grid'))
+        records_data, headers='keys',
+        showindex=row_ids, tablefmt='rounded_grid'))
     row = get_row()
 
     while True:
@@ -185,14 +192,21 @@ def get_year():
     What year was the album released (format YYYY)?
         Params:
             While loop validates if numbers are inputted using re
-            If exclusively numbers are not used, while loop breaks and user is asked to try again
-            If exclusively numbers are used, then it is checked if the string. length is 4
-            If not valid, user is asked to try again. If valid, year is printed back to user
+            If input is not a number:
+                while loop breaks and user is asked to try again
+            If exclusively numbers are used:
+                then it is checked if the string length is 4
+            If not valid:
+                user is asked to try again
+            If valid:
+                year is printed back to user
         Returns:
             year: used within add_to_collection
     """
     while True:
-        year = input('What year was the album released (format YYYY)? ').strip()
+        year = input(
+            'What year was the album released (format YYYY)? '
+            ).strip()
         if not re.match('^[0-9]+$', year):
             print('\nInvalid year, please only enter numbers')
             continue
@@ -206,20 +220,25 @@ def get_year():
 
 def add_to_collection():
     """
-    Provides steps for the user to follow to add a new vinyl to the management system
+    Provides steps for the user to follow to add a vinyl to the system
     Global functions are called in a logical order
-    These functions return values that are compiled into a list and printed back to the user
+    These functions return values that are:
+        compiled into a list
+        and printed back to the user
     While loop is used to ask the user to confirm the details are correct:
-        If user confirms yes, update_vinyl_worksheet() is called and external worksheet is updated
-        If user inputs no, add_to_collection() starts again
-        If user does not enter y or n, error appears and they are asked to try again
+        If user inputs yes:
+            update_vinyl_worksheet() is called and google sheet updates
+        If user inputs no:
+            add_to_collection() starts again
+        If user does not enter y or n:
+            error appears and they are asked to try again
     """
     print("About the latest addition to your collection:\n")
     artist = get_artist()
     album = get_album()
     year = get_year()
    
-    # List collate the returned values from functions to confirm new vinyl entry
+    # List collate the returned values from functions
     new_addition = [
         artist,
         album,
@@ -227,7 +246,9 @@ def add_to_collection():
         ]
     
     # Confirm entry is correct with user
-    print(f'The latest addition to your vinyl collection is {album} ({year}) by {artist}')
+    print(
+        f'The latest vinyl addition is {album} ({year}) by {artist}'
+        )
     # While loop to either confirm entry or restart
     # If input is not valid, error message will user to try again
     
@@ -279,7 +300,8 @@ def main():
     print('3. Edit collection'.center(80))
     print('4. Exit'.center(80))
 
-    option = input('\n\nEnter a number from 1-4 to navigate through the menu: ').strip()
+    option = input(
+        '\n\nEnter a number from 1-4 to navigate through the menu: ').strip()
 
     if option == "4":
         wipe()
