@@ -1,11 +1,13 @@
 """
 Imported libraries supporting the application
 """
-import gspread  # To open and edit spreadsheet
+import gspread  # To open and edit vinyl collection spreadsheet
 from google.oauth2.service_account import Credentials
-from tabulate import tabulate  # To pretty-print tabular data
+from tabulate import tabulate  # To pretty-print tabular data in the command-line application
 import sys  # To provide a programme exit for the user
 import re   # To support name and album validation
+import os  # To support clearing the terminal for improved UX 
+from os import system, name
 import time  # To create delays before certain functionalities
 
 # define the scope
@@ -15,11 +17,11 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
-# add credentials to account
+# add credentials to account 
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 
-# authorise the sheet
+# authorise the sheet 
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 
 # get the instance of the sheet
@@ -28,12 +30,11 @@ SHEET = GSPREAD_CLIENT.open('vinyl_collection')
 
 def pad_to_centre(l, w):
     """
-    Manual centering of ASCI art logo.
+    Manual centering of ASCI art logo. 
     """
     padding = ' '*(w//2)
     parts = [padding[0: (w-len(p))//2+1]+p for p in l]
     return '\n'.join(parts)
-
 
 def logo():
     """
@@ -46,8 +47,7 @@ def logo():
 ██║░░██║██║██║░░╚██╗██║░░╚██╗
 ██████╔╝██║╚██████╔╝╚██████╔╝
 ╚═════╝░╚═╝░╚═════╝░░╚═════╝░\n\n'''
-    print(pad_to_centre(logo.splitlines(), 80))
-
+    print(pad_to_centre(logo.splitlines(),80))
 
 def welcome():
     """
@@ -56,10 +56,7 @@ def welcome():
     logo()
     print('Welcome to DIGG, your vinyl collection management system.'.center(80))
     input('Press enter to go to the main menu'.center(80))
-
-
 welcome()
-
 
 def wipe():
     """
@@ -73,7 +70,6 @@ def wipe():
     # for mac and linux(here, os.name is 'posix')
     else:
         _ = system('clear')
-
 
 def get_row():
     """
@@ -98,8 +94,7 @@ def get_row():
         else:
             print(f'The vinyl you would like to delete is number {row}\n')
             break
-    return row
-
+    return row   
 
 def edit_collection():
     """
@@ -136,8 +131,7 @@ def edit_collection():
     print('\nYour vinyl collection has been successfully updated.')
     input('\nPress enter to go back to main menu.')
     main()
-
- 
+    
 def update_vinyl_worksheet(data):
     """
     Inserts new vinyl data from user to external spreadsheet
@@ -149,7 +143,6 @@ def update_vinyl_worksheet(data):
     print('\nYour vinyl collection has been successfully updated.')
     input('\nPress enter to go back to main menu.')
     main()
-
 
 def get_artist():
     """
@@ -163,7 +156,6 @@ def get_artist():
     print(f'The artist name is {artist}\n')
     return artist
 
-
 def get_album():
     """
     Provides a question to the user asking:
@@ -176,7 +168,6 @@ def get_album():
     print(f'The album title is {album}\n')
     return album
 
-
 def get_year():
     """
     Provides a question to the user asking:
@@ -184,14 +175,14 @@ def get_year():
         Params:
             While loop validates if numbers are inputted using re
             If exclusively numbers are not used, while loop breaks and user is asked to try again
-            If exclusively numbers are used, then it is checked if the string. length is 4.
+            If exclusively numbers are used, then it is checked if the string. length is 4. 
             If not valid, user is asked to try again. If valid, year is printed back to user.
         Returns:
             year: used within add_to_collection
     """
     while True:
         year = input('What year was the album released (format YYYY)? ').strip()
-        if not re.match('^[0-9]+$', year):
+        if not re.match('^[0-9]+$', year): 
             print('\nInvalid year, please only enter numbers')
             continue
         elif len(year) != 4:
@@ -201,9 +192,8 @@ def get_year():
             print(f'The album was released in {year}\n')
         return year
 
-
 def add_to_collection():
-    """
+    """ 
     Provides steps for the user to follow to add a new vinyl to the management system
     Global functions are called in a logical order
     These functions return values that are compiled into a list and printed back to the user
@@ -216,19 +206,19 @@ def add_to_collection():
     artist = get_artist()
     album = get_album()
     year = get_year()
-  
+    
     # List collate the returned values from functions to confirm new vinyl entry
     new_addition = [
         artist,
         album,
         year
         ]
- 
+    
     # Confirm entry is correct with user 
     print(f'The latest addition to your vinyl collection is {album} ({year}) by {artist}')
     # While loop to either confirm entry or restart
     # If input is not valid, error message will user to try again
-
+    
     while True:
         user_confirm = input('Is this correct? y/n ').strip().lower()
         if user_confirm == 'y':
@@ -242,7 +232,6 @@ def add_to_collection():
         else:
             print('Invalid choice, please enter either y or n\n')
 
-
 def display_collection():
     """
     Displays all sheet data from google doc using tabulate
@@ -255,7 +244,6 @@ def display_collection():
 
     input('\nPress enter to go back to main menu.')
     main()
-
 
 def main():
     """
@@ -277,7 +265,8 @@ def main():
     print('3. Edit collection'.center(80))
     print('4. Exit'.center(80))
 
-    option = input('\n\nEnter a number from 1-4 to navigate through the menu: ').strip()
+    option = input(
+    '\n\nEnter a number from 1-4 to navigate through the menu: ').strip()
 
     if option == "4":
         wipe()
@@ -299,7 +288,6 @@ def main():
         print('Invalid option, please enter a number from 1-4.')
         time.sleep(2)
     main()
-
 
 if __name__ == '__main__':
     # Execute main Python function
